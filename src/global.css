@@ -2,12 +2,6 @@
 @import "open-props/postcss/normalize";
 @import "open-props/postcss/buttons";
 
-@font-face {
-  font-family: icon;
-  src: url(./fonts/la-solid-900.woff2);
-  font-display: auto;
-}
-
 
 
 /**

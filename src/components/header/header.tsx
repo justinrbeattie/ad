@@ -1,6 +1,7 @@
 import { component$, useStylesScoped$ } from '@builder.io/qwik';
 import { QwikLogo } from '../icons/qwik';
 import styles from './header.css?inline';
+import { BeakerIcon } from "heroicons-qwik/24/outline";
 
 export default component$(() => {
   useStylesScoped$(styles);
@@ -12,9 +13,7 @@ export default component$(() => {
           <QwikLogo />
 
         </a>
-        <div style="font-family: icon;">
-          &#xf107;
-          </div>
+        <BeakerIcon />
       </div>
       <ul>
         <li>
