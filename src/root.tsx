@@ -1,6 +1,7 @@
 import { component$, useStyles$ } from '@builder.io/qwik';
 import { QwikCity, RouterOutlet, ServiceWorkerRegister } from '@builder.io/qwik-city';
 import { RouterHead } from './components/router-head/router-head';
+import WebComponentSection from './components/web-components/section/section';
 
 import globalStyles from './global.css?inline';
 
@@ -23,6 +24,7 @@ export default component$(() => {
       <body lang="en">
         <RouterOutlet />
         <ServiceWorkerRegister />
+        <WebComponentSection />
       </body>
     </QwikCity>
   );
