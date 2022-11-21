@@ -4,6 +4,15 @@
 
 
 
+@font-face {
+  font-family: 'Inter';
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: 'Regular';
+  src: url("./fonts/Inter-roman.var.woff2?v=3.19") format("woff2");
+}
+
 /**
  * WHAT IS THIS FILE?
  *
