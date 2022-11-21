@@ -1,3 +1,14 @@
+@import "open-props/postcss/style";
+@import "open-props/postcss/normalize";
+@import "open-props/postcss/buttons";
+
+@font-face {
+  font-family: icon;
+  src: url(./fonts/la-solid-900.woff2);
+}
+
+
+
 /**
  * WHAT IS THIS FILE?
  *
@@ -5,6 +16,7 @@
  * the styles in here will be applied to the Document, without any sort of CSS scoping.
  *
  */
+
 
 :root {
   --qwik-dark-blue: #006ce9;

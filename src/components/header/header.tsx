@@ -10,7 +10,11 @@ export default component$(() => {
       <div class="logo">
         <a href="https://qwik.builder.io/" target="_blank">
           <QwikLogo />
+
         </a>
+        <div style="font-family: icon;">
+          &#xf107;
+          </div>
       </div>
       <ul>
         <li>
