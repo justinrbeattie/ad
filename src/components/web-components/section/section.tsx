@@ -5,14 +5,14 @@ export default component$(() => {
   useStyles$(styles);
   useClientEffect$(() => {
     webComponentInit();
-  }, {eagerness:'load'});
+  }, { eagerness: 'load' });
 
 
 
   return (
     <>
 
-    <script></script>
+      <script></script>
     </>
   );
 });
@@ -33,6 +33,7 @@ export const webComponentInit = () => {
     sectionId: string | null = this.getAttribute('id');
     sentinel: Element | null = this.querySelector('.sentinel');
     scrollContainer = document.documentElement;
+    scrollStopInterval: any;
     clamp = (min: number, num: number, max: number) => Math.min(Math.max(num, min), max);
     constructor() {
       super();
@@ -62,12 +63,15 @@ export const webComponentInit = () => {
         const previousScrollProgress: number = Number(document.documentElement.getAttribute('data-scroll-amount')) || 0;
         const scrollingDown = previousScrollProgress <= this.scrollContainer.scrollTop;
         const scrollProgress = (this.scrollContainer.scrollTop / (this.scrollContainer.scrollHeight - window.innerHeight)).toFixed(3);
+        const scrollSpeed = this.calculateScrollSpeed(previousScrollProgress);
         document.documentElement.setAttribute('data-scroll-amount', String(this.scrollContainer.scrollTop));
         document.documentElement.setAttribute('data-scroll-direction', scrollingDown ? 'down' : 'up');
         document.documentElement.setAttribute('data-scroll-progress', scrollProgress);
+        document.documentElement.setAttribute('data-scroll-speed', scrollSpeed);
         document.documentElement.style.setProperty("--scroll-progress", scrollProgress);
         document.documentElement.style.setProperty("--scroll-amount", String(this.scrollContainer.scrollTop));
-        document.documentElement.style.setProperty("--scroll-speed", this.calculateScrollSpeed(previousScrollProgress));
+        document.documentElement.style.setProperty("--scroll-speed", scrollSpeed);
+        this.detectIfScrollingHasStopped();
       }
     }
 
@@ -88,6 +92,23 @@ export const webComponentInit = () => {
       } else {
         return String(0);
       }
+    }
+
+    detectIfScrollingHasStopped(): void {
+      const position = this.scrollContainer.scrollTop;
+      if (this.scrollStopInterval) {
+        window.cancelAnimationFrame(this.scrollStopInterval);
+      }
+      this.scrollStopInterval = window.requestAnimationFrame(() => {
+        if (position === this.scrollContainer.scrollTop) {
+          document.documentElement.setAttribute('data-scrolling', 'false');
+          document.documentElement.setAttribute('data-scroll-speed', '0');
+          document.documentElement.style.setProperty("--scroll-speed", '0');
+        } else {
+          document.documentElement.setAttribute('data-scrolling', 'true');
+        }
+
+      });
     }
 
     _intersectionCallback = (entries: IntersectionObserverEntry[]) => {
