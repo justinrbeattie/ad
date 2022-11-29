@@ -1,6 +1,6 @@
-import { component$, useStore } from "@builder.io/qwik";
+import { component$, Slot, useStore } from "@builder.io/qwik";
 
-export const MyFunComponent = component$((props: { text: string }) => {
+export const MyFunComponent = component$((props: { text: string, children:Array<any> }) => {
     const state = useStore({
       count: 0,
     });
@@ -10,7 +10,7 @@ export const MyFunComponent = component$((props: { text: string }) => {
         <h3>{props.text.toUpperCase()}</h3>
         <p>{state.count}</p>
         <button onClick$={() => state.count++}>Click me</button>
-        <slot></slot>
+        <Slot></Slot>
       </div>
     );
   });
