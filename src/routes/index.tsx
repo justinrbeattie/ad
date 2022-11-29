@@ -1,62 +1,34 @@
-import { component$ } from '@builder.io/qwik';
-import type { DocumentHead } from '@builder.io/qwik-city';
+import { component$, Resource, useResource$ } from "@builder.io/qwik";
+import { useLocation } from "@builder.io/qwik-city";
+import { getContent, RenderContent, getBuilderSearchParams } from "@builder.io/sdk-qwik";
+
+export const BUILDER_PUBLIC_API_KEY = "e2743f60012d408688bf050e1e8606dc";
+export const BUILDER_MODEL = "page";
 
 export default component$(() => {
+  const location = useLocation();
+  const builderContentRsrc = useResource$<any>(() => {
+    return getContent({
+      model: BUILDER_MODEL,
+      apiKey: BUILDER_PUBLIC_API_KEY,
+      options: getBuilderSearchParams(location.query),
+      userAttributes: {
+        urlPath: location.pathname || "/",
+      },
+    });
+  });
+
   return (
-    <main>
-      <section is="page-section" id="abc">
-        <div class="content"><div>aaa</div>
-
-
-
-        </div>
-        <div class="sentinel-wrapper">
-          <div class="sentinel"></div>
-        </div>
-      </section>
-
-      <section is="page-section" id="def">
-        <div class="content"><div>aaa</div>
-
-
-
-        </div>
-        <div class="sentinel-wrapper">
-          <div class="sentinel"></div>
-        </div>
-      </section>
-
-      <section is="page-section" id="ghi">
-        <div class="content"><div>aaa</div>
-
-
-
-        </div>
-        <div class="sentinel-wrapper">
-          <div class="sentinel"></div>
-        </div>
-      </section>
-      <section is="page-section" id="jkl">
-        <div class="content"><div>aaa</div>
-
-
-
-        </div>
-        <div class="sentinel-wrapper">
-          <div class="sentinel"></div>
-        </div>
-      </section>
-
-    </main>
+    <Resource
+      value={builderContentRsrc}
+      onPending={() => <div>Loading...</div>}
+      onResolved={(content) => (
+        <RenderContent
+          model={BUILDER_MODEL}
+          content={content}
+          apiKey={BUILDER_PUBLIC_API_KEY}
+        />
+      )}
+    />
   );
 });
-
-export const head: DocumentHead = {
-  title: 'Welcome to Qwik',
-  meta: [
-    {
-      name: 'description',
-      content: 'Qwik site description',
-    },
-  ],
-};
