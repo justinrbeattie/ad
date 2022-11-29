@@ -10,6 +10,7 @@ export const MyFunComponent = component$((props: { text: string }) => {
         <h3>{props.text.toUpperCase()}</h3>
         <p>{state.count}</p>
         <button onClick$={() => state.count++}>Click me</button>
+        <slot></slot>
       </div>
     );
   });

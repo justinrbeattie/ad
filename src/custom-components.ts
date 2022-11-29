@@ -6,6 +6,13 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
       component: MyFunComponent,
       name: 'MyFunComponent',
       builtIn: true,
+      canHaveChildren:true,
+      defaultChildren: [
+        { 
+          '@type': '@builder.io/sdk:Element',
+          component: { name: 'Text', options: { text: 'I am child text block!' } }
+        }
+      ],
       inputs: [
         {
           name: 'text',
