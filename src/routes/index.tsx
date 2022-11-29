@@ -19,16 +19,20 @@ export default component$(() => {
   });
 
   return (
-    <Resource
-      value={builderContentRsrc}
-      onPending={() => <div>Loading...</div>}
-      onResolved={(content) => (
-        <RenderContent
-          model={BUILDER_MODEL}
-          content={content}
-          apiKey={BUILDER_PUBLIC_API_KEY}
+    <div>
+      <main>
+        <Resource
+          value={builderContentRsrc}
+          onPending={() => <div>Loading...</div>}
+          onResolved={(content) => (
+            <RenderContent
+              model={BUILDER_MODEL}
+              content={content}
+              apiKey={BUILDER_PUBLIC_API_KEY}
+            />
+          )}
         />
-      )}
-    />
+      </main>
+    </div>
   );
 });
