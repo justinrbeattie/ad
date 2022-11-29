@@ -65,19 +65,21 @@ body>footer {
   top: 0;
   position: absolute;
   width: 100vw;
-  max-height: var(--bottom-nav-height);
+  height: var(--bottom-nav-height);
   z-index: var(--layer-4);
   background: red;
   box-shadow: var(--shadow-2);
   border-top: 1px solid var(--surface-3);
   transform: translateY(calc((var(--page-height) - var(--bottom-nav-height)) + (var(--scroll-amount) * 1px)));
-  transition: max-height .25s ease-in-out, opacity .25s ease-in-out;
-  opacity: 1;
 }
 
 html:not([data-scroll-speed="0"]) body>footer {
   max-height: 0;
   opacity: 0;
+  transform:unset;
   transition: none;
+  position:sticky;
+  top:unset;
+  bottom:0;
 
 }
