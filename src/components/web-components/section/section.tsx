@@ -136,3 +136,53 @@ export const webComponentInit = () => {
 
 
 }
+
+
+/* 
+
+ <main>
+      <section is="page-section" id="abc">
+        <div class="content"><div>aaa</div>
+
+
+
+        </div>
+        <div class="sentinel-wrapper">
+          <div class="sentinel"></div>
+        </div>
+      </section>
+
+      <section is="page-section" id="def">
+        <div class="content"><div>aaa</div>
+
+
+
+        </div>
+        <div class="sentinel-wrapper">
+          <div class="sentinel"></div>
+        </div>
+      </section>
+
+      <section is="page-section" id="ghi">
+        <div class="content"><div>aaa</div>
+
+
+
+        </div>
+        <div class="sentinel-wrapper">
+          <div class="sentinel"></div>
+        </div>
+      </section>
+      <section is="page-section" id="jkl">
+        <div class="content"><div>aaa</div>
+
+
+
+        </div>
+        <div class="sentinel-wrapper">
+          <div class="sentinel"></div>
+        </div>
+      </section>
+
+    </main>
+*/
