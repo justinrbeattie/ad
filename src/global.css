@@ -50,18 +50,9 @@
  }
 
  main {
+   min-height:calc(100vh - (var(--top-nav-height) + var(--bottom-nav-height)));
    grid-area: main;
    display: flex;
    flex-direction: column;
  }
 
- body>header {
-   grid-area: header;
-   top: 0;
-   position: sticky;
-   width: 100vw;
-   z-index: var(--layer-4);
-   background: var(--surface-0);
-   box-shadow: var(--shadow-2);
-   border-bottom: 1px solid var(--surface-3);
- }
