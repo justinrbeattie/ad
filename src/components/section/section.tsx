@@ -1,4 +1,4 @@
-import { component$, Slot, useClientEffect$, useSignal, useStore, useStylesScoped$ } from '@builder.io/qwik';
+import { component$, useClientEffect$, useSignal, useStore, useStylesScoped$ } from '@builder.io/qwik';
 import styles from './section.css?inline';
 
 export interface SectionStore {
