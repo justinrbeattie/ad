@@ -39,7 +39,7 @@ export default component$((props: { id: string, rows:number }) => {
     style={{ '--animation-progress': store.progress, '--page-grid-rows': props.rows|| 5 }} 
     ref={sectionRef}>
       <div class="section-content">
-        <Slot></Slot>
+  
       </div>
       <div class="sentinel-wrapper">
         <div class="sentinel" ref={sentinelRef}></div>
