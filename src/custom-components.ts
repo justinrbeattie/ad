@@ -8,6 +8,7 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
     component: Main,
     name: 'Main',
     builtIn: true,
+    noWrap:true,
     canHaveChildren: true,
     defaultChildren: [
       {
@@ -26,6 +27,7 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
     component: Section,
     name: 'Section',
     builtIn: true,
+    noWrap:true,
     canHaveChildren: true,
     defaultChildren: [
       {
