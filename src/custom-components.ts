@@ -1,24 +1,45 @@
 import { RegisteredComponent } from "@builder.io/sdk-qwik";
-import { MyFunComponent } from "./components/test/test";
+import Main from "~/components/main/main";
+import Section from "~/components/section/section";
 
 
 export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
-    {
-      component: MyFunComponent,
-      name: 'MyFunComponent',
-      builtIn: true,
-      defaultChildren: [
-        { 
-          '@type': '@builder.io/sdk:Element',
-          component: { name: 'Text', options: { text: 'I am child text block!' } }
-        }
-      ],
-      inputs: [
-        {
-          name: 'text',
-          type: 'string',
-          defaultValue: 'Hello world',
-        },
-      ],
-    },
-  ];
+  {
+    component: Main,
+    name: 'Main',
+    builtIn: true,
+    canHaveChildren: true,
+    defaultChildren: [
+      {
+        '@type': '@builder.io/sdk:Element',
+        component: { name: 'Section' }
+      }
+    ],
+    childRequirements: {
+      message: 'You can only put Sections in a Main Tag',
+      query: {
+        'component.name': { $in: ['Section'] },
+      }
+    }
+  },
+  {
+    component: Section,
+    name: 'Section',
+    builtIn: true,
+    canHaveChildren: true,
+    defaultChildren: [
+      {
+        '@type': '@builder.io/sdk:Element',
+        component: { name: 'Text', options: { text: 'I am child text block!' } }
+      }
+    ],
+    inputs: [
+      {
+        name: 'id',
+        type: 'string',
+        defaultValue: '',
+      },
+    ],
+  },
+];
+

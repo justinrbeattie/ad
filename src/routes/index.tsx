@@ -20,8 +20,6 @@ export default component$(() => {
   });
 
   return (
-    <div>
-      <main>
         <Resource
           value={builderContentRsrc}
           onPending={() => <div>Loading...</div>}
@@ -34,7 +32,5 @@ export default component$(() => {
             />
           )}
         />
-      </main>
-    </div>
   );
 });
