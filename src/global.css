@@ -1,86 +1,67 @@
-/* @import "open-props/postcss/style";
-@import "open-props/postcss/normalize";
-@import "open-props/postcss/buttons";
+/*  @import "open-props/postcss/style";
+ @import "open-props/postcss/normalize";
+ @import "open-props/postcss/buttons";
  */
 
 
-@font-face {
-  font-family: 'Inter';
-  font-weight: 100 900;
-  font-display: swap;
-  font-style: normal;
-  font-named-instance: 'Regular';
-  src: url("./fonts/Inter-roman.var.woff2") format("woff2");
-}
+ @font-face {
+   font-family: 'Inter';
+   font-weight: 100 900;
+   font-display: swap;
+   font-style: normal;
+   font-named-instance: 'Regular';
+   src: url("./fonts/Inter-roman.var.woff2") format("woff2");
+ }
 
 
 
-:root {
-  --page-width: 100vw;
-  --page-height: 100vh;
-  --top-nav-height: 64px;
-  --bottom-nav-height: 64px;
-}
+ :root {
+   --page-width: 100vw;
+   --page-height: 100vh;
+   --top-nav-height: 64px;
+   --bottom-nav-height: 64px;
+   --page-grid-gutter-y: 1vh;
+   --page-grid-gutter-x: 12.5vw;
+   --page-grid-gap: 0.5rem;
+   --page-grid-rows: 5;
+   --page-grid-template-columns: [left-gutter] var(--page-grid-gutter-x) [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col right-gutter] var(--page-grid-gutter-x);
+   --page-grid--template-rows: [top-gutter] var(--page-grid-gutter-y) repeat(var(--page-grid-rows), [row] minmax(70px, calc(10vh - var(--page-grid-gap)))) [bottom-gutter] var(--page-grid-gutter-y);
+ }
 
-html {
-  overflow: auto;
-  width: var(--page-width);
-  height: var(--page-height);
-}
+ html {
+   overflow: auto;
+   width: var(--page-width);
+   height: var(--page-height);
+ }
 
-body {
-  display: grid;
-  width: var(--page-width);
-  grid-template-columns: 1fr;
-  grid-template-rows:
-    var(--top-nav-height) auto var(--bottom-nav-height);
-  grid-template-areas:
-    "header"
-    "main"
-    "footer";
-  margin: 0;
-  position: relative;
-  padding: 0;
-}
+ body {
+   display: grid;
+   width: var(--page-width);
+   grid-template-columns: 1fr;
+   grid-template-rows:
+     var(--top-nav-height) auto var(--bottom-nav-height);
+   grid-template-areas:
+     "header"
+     "main"
+     "footer";
+   margin: 0;
+   position: relative;
+   padding: 0;
+ }
 
-main {
-  grid-area: main;
-  display: flex;
-  flex-direction: column;
-}
+ main {
+   grid-area: main;
+   display: flex;
+   flex-direction: column;
+ }
 
-
-
-body>header {
-  grid-area: header;
-  top: 0;
-  position: sticky;
-  width: 100vw;
-  z-index: var(--layer-4);
-  background: var(--surface-0);
-  box-shadow: var(--shadow-2);
-  border-bottom: 1px solid var(--surface-3);
-}
-
-body>footer {
-  top: 0;
-  position: absolute;
-  width: 100vw;
-  height: var(--bottom-nav-height);
-  z-index: var(--layer-4);
-  background: red;
-  box-shadow: var(--shadow-2);
-  border-top: 1px solid var(--surface-3);
-  transform: translateY(calc((var(--page-height) - var(--bottom-nav-height)) + (var(--scroll-amount) * 1px)));
-}
-
-html:not([data-scroll-speed="0"]) body>footer {
-  max-height: 0;
-  opacity: 0;
-  transform:unset;
-  transition: none;
-  position:sticky;
-  top:unset;
-  bottom:0;
-
-}
+ body>header {
+   grid-area: header;
+   top: 0;
+   position: sticky;
+   width: 100vw;
+   z-index: var(--layer-4);
+   background: var(--surface-0);
+   box-shadow: var(--shadow-2);
+   border-bottom: 1px solid var(--surface-3);
+ }

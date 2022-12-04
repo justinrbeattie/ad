@@ -1,4 +1,4 @@
-import { component$, useClientEffect$, useSignal, useStore, useStylesScoped$ } from '@builder.io/qwik';
+import { component$, Slot, useClientEffect$, useSignal, useStore, useStylesScoped$ } from '@builder.io/qwik';
 import styles from './section.css?inline';
 
 export interface SectionStore {
@@ -13,7 +13,8 @@ export interface SectionStore {
 export let intersectionObserver: undefined | IntersectionObserver = undefined;
 export let scrollStopInterval: undefined | number;
 
-export default component$((props: { id: string }) => {
+export default component$((props: { id: string, rows:number }) => {
+
   useStylesScoped$(styles);
   const store: SectionStore = useStore({
     id: props.id,
@@ -34,9 +35,11 @@ export default component$((props: { id: string }) => {
   });
 
   return (
-    <section data-visible={String(store.visible)} style={{ '--animation-progress': store.progress }} ref={sectionRef}>
-      <div class="content">
-        <div>{store.progress}</div>
+    <section data-visible={String(store.visible)} 
+    style={{ '--animation-progress': store.progress, '--page-grid-rows': props.rows|| 5 }} 
+    ref={sectionRef}>
+      <div class="section-content">
+        <Slot></Slot>
       </div>
       <div class="sentinel-wrapper">
         <div class="sentinel" ref={sentinelRef}></div>
