@@ -1,7 +1,10 @@
-/*  @import "open-props/postcss/style";
+ @import "open-props/postcss/style";
  @import "open-props/postcss/normalize";
  @import "open-props/postcss/buttons";
- */
+ 
+ @import "../src/styles/media-queries.css";
+ @import "../src/styles/page.css";
+ @import "../src/styles/brand.css";
 
 
  @font-face {
@@ -23,7 +26,6 @@
  }
 
  html {
-   overflow: auto;
    width: var(--page-width);
    height: var(--page-height);
  }
@@ -44,7 +46,6 @@
  }
 
  main {
-   min-height:calc(100vh - (var(--top-nav-height) + var(--bottom-nav-height)));
    grid-area: main;
    display: flex;
    flex-direction: column;
