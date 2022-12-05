@@ -1,7 +1,17 @@
+
+ :root {
+  --page-grid-gutter-y: 1vh;
+  --page-grid-gutter-x: 12.5vw;
+  --page-grid-gap: 0.5rem;
+  --page-grid-rows: 5;
+}
+
 section {
   display: flex;
   position: relative;
   width: 100vw;
+  --page-grid-template-columns: [left-gutter] var(--page-grid-gutter-x) [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col right-gutter] var(--page-grid-gutter-x);
+  --page-grid--template-rows: [top-gutter] var(--page-grid-gutter-y) repeat(var(--page-grid-rows), [row] minmax(70px, calc(10vh - var(--page-grid-gap)))) [bottom-gutter] var(--page-grid-gutter-y);
 
   & .section-content {
     display: grid;
@@ -12,14 +22,14 @@ section {
     padding: calc(var(--page-grid-gap) / 2) 0;
     width: 100vw;
 
-    & section:before {
+    &:before {
       content: "";
       grid-column: col 1 / span 12;
       grid-row: row 1 / -2;
       border:dashed var(--border-size-1) gray;
     }
     
-   & section:after {
+   &:after {
       content: "";
       grid-column: 1 / -1;
       grid-row: 1 / -1;
