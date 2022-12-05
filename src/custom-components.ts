@@ -108,38 +108,37 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
         name: 'rows',
         type: 'object',
         defaultValue: {
-          defaultValue: {
-            xs: 'row 1/ span 2'
-          },
-          subFields: [
-            {
-              name: 'xs',
-              type: 'string',
-              defaultValue: 'row 1 / span 2',
-              required: true,
-            },
-            {
-              name: 'sm',
-              type: 'string',
-            },
-            {
-              name: 'md',
-              type: 'string',
-            },
-            {
-              name: 'lg',
-              type: 'string',
-            },
-            {
-              name: 'xl',
-              type: 'string',
-            },
-            {
-              name: 'xxl',
-              type: 'string',
-            },
-          ],
+          xs: 'row 1/ span 2'
         },
+        subFields: [
+          {
+            name: 'xs',
+            type: 'string',
+            defaultValue: 'row 1 / span 2',
+            required: true,
+          },
+          {
+            name: 'sm',
+            type: 'string',
+          },
+          {
+            name: 'md',
+            type: 'string',
+          },
+          {
+            name: 'lg',
+            type: 'string',
+          },
+          {
+            name: 'xl',
+            type: 'string',
+          },
+          {
+            name: 'xxl',
+            type: 'string',
+          },
+        ],
+
       },
     ],
   },
