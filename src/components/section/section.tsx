@@ -38,11 +38,11 @@ export default component$((props: { id: string, rows:number, attributes:any }) =
     <section   {...props.attributes} data-visible={String(store.visible)} 
     style={{ '--animation-progress': store.progress, '--page-grid-rows': props.rows|| 5 }} 
     ref={sectionRef}>
-      <div class="section-content">
+      <div className="section-content">
   <Slot></Slot>
       </div>
-      <div class="sentinel-wrapper">
-        <div class="sentinel" ref={sentinelRef}></div>
+      <div className="sentinel-wrapper">
+        <div className="sentinel" ref={sentinelRef}></div>
       </div>
     </section>
   );

@@ -15,38 +15,38 @@
 @media (--sm-n-above) {
 
   .content {
-    --content-column: var(--sm-column);
-    --content-row: var(--sm-row);
+    --content-column:var(--sm-column, var(--xs-column));
+    --content-row: var(--sm-row, var(--xs-row));
   }
 }
 
 @media (--md-n-above) {
 
   .content {
-    --content-column: var(--md-column);
-    --content-row: var(--md-row);
+    --content-column: var(--md-column, var(--sm-column, var(--xs-column)));
+    --content-row: var(--md-row, var(--sm-row, var(--xs-row)));
   }
 }
 
 @media (--lg-n-above) {
 
   .content {
-    --content-column: var(--lg-column);
-    --content-row: var(--lg-row);
+    --content-column: var(--lg-column, var(--md-column, var(--sm-column, var(--xs-column))));
+    --content-row: var(--lg-row, var(--md-row, var(--sm-row, var(--xs-row))));
   }
 }
 
 @media (--xl-n-above) {
   .content {
-    --content-column: var(--xl-column);
-    --content-row: var(--xl-row);
+    --content-column: var(--xl-column, var(--lg-column, var(--md-column, var(--sm-column, var(--xs-column)))));
+    --content-row: var(--xl-row, var(--lg-row, var(--md-row, var(--sm-row, var(--xs-row)))));
   }
 }
 
 @media (--xxl-n-above) {
 
   .content {
-    --content-column: var(--xxl-column);
-    --content-row: var(--xxl-row);
+    --content-column: var(--xxl-column, var(--xl-column, var(--lg-column, var(--md-column, var(--sm-column, var(--xs-column))))));
+    --content-row: var(--xxl-row, var(--xl-row, var(--lg-row, var(--md-row, var(--sm-row, var(--xs-row))))));
   }
 }
