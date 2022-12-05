@@ -1,0 +1,52 @@
+content {
+  grid-column: var(--content-column);
+  grid-row: var(--content-row);
+  background: orange;
+}
+
+
+@media (--xs-n-above) {
+  content {
+    --content-column: var(--xs-column);
+    --content-row: var(--xs-row);
+  }
+}
+
+@media (--sm-n-above) {
+
+  content {
+    --content-column: var(--sm-column);
+    --content-row: var(--sm-row);
+  }
+}
+
+@media (--md-n-above) {
+
+  content {
+    --content-column: var(--md-column);
+    --content-row: var(--md-row);
+  }
+}
+
+@media (--lg-n-above) {
+
+  content {
+    --content-column: var(--lg-column);
+    --content-row: var(--lg-row);
+  }
+}
+
+@media (--xl-n-above) {
+  content {
+    --content-column: var(--xl-column);
+    --content-row: var(--xl-row);
+  }
+}
+
+@media (--xxl-n-above) {
+
+  content {
+    --content-column: var(--xxl-column);
+    --content-row: var(--xxl-row);
+  }
+}

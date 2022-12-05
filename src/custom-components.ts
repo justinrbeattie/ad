@@ -140,6 +140,22 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
 
       },
     ],
+    defaults: {
+      bindings: {
+        'style.--xs-column': 'state.columns.xs',
+        'style.--sm-column': 'state.columns.sm || state.columns.xs',
+        'style.--md-column': 'state.columns.md || state.columns.sm || state.columns.xs',
+        'style.--lg-column': 'state.columns.lg || state.columns.md || state.columns.sm || state.columns.xs',
+        'style.--xl-column': 'state.columns.xl || state.columns.lg || state.columns.md || state.columns.sm || state.columns.xs',
+        'style.--xxl-column': 'state.columns.xxl || state.columns.xl || state.columns.lg || state.columns.md || state.columns.sm || state.columns.xs',
+        'style.--xs-row': 'state.rows.xs',
+        'style.--sm-row': 'state.rows.sm || state.rows.xs',
+        'style.--md-row': 'state.rows.md || state.rows.sm || state.rows.xs',
+        'style.--lg-row': 'state.rows.lg || state.rows.md || state.rows.sm || state.rows.xs',
+        'style.--xl-row': 'state.rows.xl || state.rows.lg || state.rows.md || state.rows.sm || state.rows.xs',
+        'style.--xxl-row': 'state.rows.xxl || state.rows.xl || state.rows.lg || state.rows.md || state.rows.sm || state.rows.xs',
+      },
+    },
   },
 ];
 

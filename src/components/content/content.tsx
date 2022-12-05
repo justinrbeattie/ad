@@ -1,10 +1,10 @@
-import { component$, Slot} from '@builder.io/qwik';
-
+import { component$, Slot, useStyles$} from '@builder.io/qwik';
+import styles from './content.css?inline';
 
 export default component$((props: {attributes: any}) => {
-
+  useStyles$(styles);
   return (
-    <div    {...props.attributes} >
+    <div  class="content"  {...props.attributes} >
       <Slot></Slot>
     </div>
   );

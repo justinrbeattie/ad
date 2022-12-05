@@ -57,3 +57,46 @@ section {
 
 }
 
+/* @media (--xxs-n-above) {
+  section {
+    --page-grid-rows: var(--section-rows-xxs);
+  }
+}
+
+@media (--xs-n-above) {
+  section {
+    --page-grid-rows: var(--section-rows-xs);
+  }
+}
+
+@media (--sm-n-above) {
+  section {
+    --page-grid-rows: var(--section-rows-sm);
+  }
+}
+
+@media (--md-n-above) {
+  section {
+    --page-grid-rows: var(--section-rows-md);
+  }
+}
+
+@media (--lg-n-above) {
+  section {
+    --page-grid-rows: var(--section-rows-lg);
+  }
+}
+
+@media (--xl-n-above) {
+  section {
+    --page-grid-rows: var(--section-rows-xl);
+  }
+}
+
+@media (--xxl-n-above) {
+  section {
+    --page-grid-rows: var(--section-rows-xxl);
+  }
+}
+
+ */
