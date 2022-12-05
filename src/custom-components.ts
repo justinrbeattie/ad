@@ -8,6 +8,7 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
     component: Main,
     name: 'Main',
     builtIn: true,
+    noWrap: true,
     canHaveChildren: true,
     defaultChildren: [
       {
