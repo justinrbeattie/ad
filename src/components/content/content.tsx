@@ -1,10 +1,11 @@
-import { component$} from '@builder.io/qwik';
+import { component$, Slot} from '@builder.io/qwik';
 
-export default component$(() => {
+
+export default component$((props: {attributes: any}) => {
 
   return (
-    <div>
-  
+    <div    {...props.attributes} >
+      <Slot></Slot>
     </div>
   );
 });
