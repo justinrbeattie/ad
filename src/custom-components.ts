@@ -109,7 +109,7 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
         type: 'object',
         defaultValue: {
           defaultValue: {
-            xs: 'r1 / span 2'
+            xs: 'row 1/ span 2'
           },
           subFields: [
             {

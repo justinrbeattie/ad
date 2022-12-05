@@ -1,4 +1,4 @@
-import { component$, Slot, useClientEffect$, useSignal, useStore, useStylesScoped$ } from '@builder.io/qwik';
+import { component$, Slot, useClientEffect$, useSignal, useStore, useStyles$ } from '@builder.io/qwik';
 import styles from './section.css?inline';
 
 export interface SectionStore {
@@ -15,7 +15,7 @@ export let scrollStopInterval: undefined | number;
 
 export default component$((props: { id: string, rows:number, attributes:any }) => {
 
-  useStylesScoped$(styles);
+  useStyles$(styles);
   const store: SectionStore = useStore({
     id: props.id,
     progress: 0,

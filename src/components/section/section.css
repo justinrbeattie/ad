@@ -24,15 +24,15 @@ section {
       content: "";
       grid-column: col 1 / span 12;
       grid-row: row 1 / -2;
-      border:dashed var(--border-size-1) gray;
+      border:dashed 1px gray;
     }
-    
-   &:after {
+    &:after {
       content: "";
       grid-column: 1 / -1;
       grid-row: 1 / -1;
-      border:dashed var(--border-size-1) gray;
+      border:dashed 1px gray;
     }
+
   }
 
   &>.sentinel-wrapper {
@@ -56,3 +56,4 @@ section {
 
 
 }
+
