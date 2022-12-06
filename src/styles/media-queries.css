@@ -1,6 +1,0 @@
-@custom-media --xs-n-above (min-width: 240px);
-@custom-media --sm-n-above (min-width: 480px);
-@custom-media --md-n-above (min-width: 768px);
-@custom-media --lg-n-above (min-width: 1024px);
-@custom-media --xl-n-above (min-width: 1440px);
-@custom-media --xxl-n-above (min-width: 1920px);

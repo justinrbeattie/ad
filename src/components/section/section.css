@@ -4,10 +4,6 @@ section {
   display: flex;
   position: relative;
   width: 100vw;
-  --page-grid-gutter-y: 1vh;
-  --page-grid-gutter-x: 12.5vw;
-  --page-grid-gap: 0.5rem;
-  --page-grid-rows: 5;
   --page-grid-template-columns: [left-gutter] var(--page-grid-gutter-x) [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col right-gutter] var(--page-grid-gutter-x);
   --page-grid--template-rows: [top-gutter] var(--page-grid-gutter-y) repeat(var(--page-grid-rows), [row] minmax(70px, calc(10vh - var(--page-grid-gap)))) [bottom-gutter] var(--page-grid-gutter-y);
 
@@ -57,46 +53,62 @@ section {
 
 }
 
-/* @media (--xxs-n-above) {
-  section {
-    --page-grid-rows: var(--section-rows-xxs);
+
+
+
+@media (min-width: 240px) {
+  :root {
+    --page-grid-gutter-y: 1rem;
+    --page-grid-gutter-x: 1rem;
+    --page-grid-gap: 0.5rem;
+    --page-grid-rows: 5;
   }
 }
 
-@media (--xs-n-above) {
-  section {
-    --page-grid-rows: var(--section-rows-xs);
+@media (min-width: 480px) {
+
+  :root {
+    --page-grid-gutter-y: 1vh;
+    --page-grid-gutter-x: 2.5vw;
+    --page-grid-gap: 0.5rem;
+    --page-grid-rows: 5;
   }
 }
 
-@media (--sm-n-above) {
-  section {
-    --page-grid-rows: var(--section-rows-sm);
+@media (min-width: 768px) {
+
+  :root {
+    --page-grid-gutter-y: 1vh;
+    --page-grid-gutter-x: 5vw;
+    --page-grid-gap: 0.5rem;
+    --page-grid-rows: 5;
   }
 }
 
-@media (--md-n-above) {
-  section {
-    --page-grid-rows: var(--section-rows-md);
+@media (min-width: 1024px) {
+
+  :root {
+    --page-grid-gutter-y: 1vh;
+    --page-grid-gutter-x: 7.5vw;
+    --page-grid-gap: 0.5rem;
+    --page-grid-rows: 5;
   }
 }
 
-@media (--lg-n-above) {
-  section {
-    --page-grid-rows: var(--section-rows-lg);
+@media (min-width: 1440px) {
+  :root {
+    --page-grid-gutter-y: 1vh;
+    --page-grid-gutter-x: calc((100vh - 1440) / 2);
+    --page-grid-gap: 0.5rem;
+    --page-grid-rows: 5;
   }
 }
 
-@media (--xl-n-above) {
-  section {
-    --page-grid-rows: var(--section-rows-xl);
+@media (min-width: 1920px) {
+  :root {
+    --page-grid-gutter-y: 1vh;
+    --page-grid-gutter-x: calc((100vh - 1440) / 2);
+    --page-grid-gap: 0.5rem;
+    --page-grid-rows: 5;
   }
 }
-
-@media (--xxl-n-above) {
-  section {
-    --page-grid-rows: var(--section-rows-xxl);
-  }
-}
-
- */

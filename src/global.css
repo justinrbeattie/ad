@@ -2,7 +2,6 @@
  @import "open-props/postcss/normalize";
  @import "open-props/postcss/buttons";
   */
- @import "../src/styles/media-queries.css";
  @import "../src/styles/page.css";
  @import "../src/styles/brand.css";
 
