@@ -6,6 +6,7 @@ module.exports = {
       stage: 1,
   },
     'postcss-nested': {},
+    'postcss-custom-media' : {},
     'css-has-pseudo': {},
   },
 }
