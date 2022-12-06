@@ -118,7 +118,7 @@ section {
 @media (min-width: 1920px) {
   :root {
     --page-grid-gutter-y: 1vh;
-    --page-grid-gutter-x: calc((100vh - 1600px) / 2);
+    --page-grid-gutter-x: calc((100vw - 1520px)/2);
     --page-grid-gap: 0.5rem;
   }
 
