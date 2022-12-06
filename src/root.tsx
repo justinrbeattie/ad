@@ -1,4 +1,4 @@
-import { component$, useStyles$ } from '@builder.io/qwik';
+import { component$, useStore, useStyles$ } from '@builder.io/qwik';
 import { QwikCity, RouterOutlet, ServiceWorkerRegister } from '@builder.io/qwik-city';
 import { RouterHead } from './components/router-head/router-head';
 
@@ -12,7 +12,7 @@ export default component$(() => {
    * Dont remove the `<head>` and `<body>` elements.
    */
   useStyles$(globalStyles);
-
+  const store = useStore({ pageHeight: 0 });
   return (
     <QwikCity>
       <head>
@@ -20,7 +20,9 @@ export default component$(() => {
         <link rel="manifest" href="/manifest.json" />
         <RouterHead />
       </head>
-      <body lang="en">
+      <body lang="en"window:onResize$={() => {
+        store.pageHeight = window.innerHeight;
+      }} style={{'--page-height': store.pageHeight}}>
         <RouterOutlet />
         <ServiceWorkerRegister />
       </body>
