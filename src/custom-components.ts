@@ -49,8 +49,39 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
       },
       {
         name: 'rows',
-        type: 'number',
-        defaultValue: 5,
+        type: 'object',
+        defaultValue: {
+          xs: '5'
+        },
+        subFields: [
+          {
+            name: 'xs',
+            type: 'string',
+            defaultValue: '5',
+            required: true,
+          },
+          {
+            name: 'sm',
+            type: 'string',
+          },
+          {
+            name: 'md',
+            type: 'string',
+          },
+          {
+            name: 'lg',
+            type: 'string',
+          },
+          {
+            name: 'xl',
+            type: 'string',
+          },
+          {
+            name: 'xxl',
+            type: 'string',
+          },
+        ],
+
       },
     ],
   },
@@ -142,4 +173,6 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
     ],
   },
 ];
+
+/* Add rows object  */
 

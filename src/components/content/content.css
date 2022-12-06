@@ -14,7 +14,7 @@
 @media (min-width: 480px) {
 
   .content {
-    --content-column:var(--sm-column, var(--xs-column));
+    --content-column: var(--sm-column, var(--xs-column));
     --content-row: var(--sm-row, var(--xs-row));
   }
 }

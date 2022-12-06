@@ -13,8 +13,8 @@ export interface SectionStore {
 export let intersectionObserver: undefined | IntersectionObserver = undefined;
 export let scrollStopInterval: undefined | number;
 
-export default component$((props: { id: string, rows:number, attributes:any }) => {
-
+export default component$((props: { id: string, rows: Rows, attributes: any }) => {
+  const rowStyle =  {'--xs-rows': props.rows.xs, '--sm-rows': props.rows.sm, '--md-rows': props.rows.md, '--lg-rows': props.rows.lg, '--xl-rows': props.rows.xl, '--xxl-row': props.rows.xxl};
   useStyles$(styles);
   const store: SectionStore = useStore({
     id: props.id,
@@ -35,11 +35,18 @@ export default component$((props: { id: string, rows:number, attributes:any }) =
   });
 
   return (
-    <section   {...props.attributes} data-visible={String(store.visible)} 
-    style={{ '--animation-progress': store.progress, '--page-grid-rows': props.rows|| 5 }} 
-    ref={sectionRef}>
-      <div className="section-content">
-  <Slot></Slot>
+    <section   {...props.attributes} data-visible={String(store.visible)}
+      style={{ '--animation-progress': store.progress, ...rowStyle}}
+      ref={sectionRef}>
+      <div className={
+        "section-content " +
+        (store.progress > 0 ? ' animation-progress-0 ' : '') +
+        (store.progress > 0.25 ? ' animation-progress-25 ' : '') +
+        (store.progress > 0.5 ? ' animation-progress-50 ' : '') +
+        (store.progress > 0.75 ? ' animation-progress-75 ' : '') +
+        (store.progress === 1 ? ' animation-progress-100 ' : '')
+        }>
+        <Slot></Slot>
       </div>
       <div className="sentinel-wrapper">
         <div className="sentinel" ref={sentinelRef}></div>
@@ -64,7 +71,7 @@ export const intersectionObserverInit = (store: SectionStore) => {
   }
 }
 
-export const _intersectionCallback = (store: any, entries: IntersectionObserverEntry[]) => {
+export const _intersectionCallback = (store: SectionStore, entries: IntersectionObserverEntry[]) => {
   entries.forEach((entry) => {
     let ratio = 100;
     if (entry.boundingClientRect.top > 0) {
@@ -74,30 +81,29 @@ export const _intersectionCallback = (store: any, entries: IntersectionObserverE
     }
     store.progress = Math.round((ratio / 100) * 10000) / 10000;
     store.visible = (store.progress !== 0 && store.progress !== 1);
-    store.scrollY = window.scrollY;
     isFirstVisible(store);
   });
 };
 
 export const isFirstVisible = (store: SectionStore) => {
 
-    const firstVisible = store.sectionElementRef === document.body.querySelector("section[data-visible='true']");
+  const firstVisible = store.sectionElementRef === document.body.querySelector("section[data-visible='true']");
 
-    if (firstVisible) {
-      hashChange(store);
-      const previousScrollProgress: number = Number(document.body.getAttribute('data-scroll-amount')) || 0;
-      const scrollingDown = previousScrollProgress <= window.scrollY;
-      const scrollProgress = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)).toFixed(3);
-      const scrollSpeed = calculateScrollSpeed(previousScrollProgress);
-      document.documentElement.setAttribute('data-scroll-amount', String(window.scrollY));
-      document.documentElement.setAttribute('data-scroll-direction', scrollingDown ? 'down' : 'up');
-      document.documentElement.setAttribute('data-scroll-progress', scrollProgress);
-      document.documentElement.setAttribute('data-scroll-speed', scrollSpeed);
-      document.documentElement.style.setProperty("--scroll-progress", scrollProgress);
-      document.documentElement.style.setProperty("--scroll-amount", String(window.scrollY));
-      document.documentElement.style.setProperty("--scroll-speed", scrollSpeed);
-     detectIfScrollingHasStopped();
-    }
+  if (firstVisible) {
+    hashChange(store);
+    const previousScrollProgress: number = Number(document.body.getAttribute('data-scroll-amount')) || 0;
+    const scrollingDown = previousScrollProgress <= window.scrollY;
+    const scrollProgress = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)).toFixed(3);
+    const scrollSpeed = calculateScrollSpeed(previousScrollProgress);
+    document.documentElement.setAttribute('data-scroll-amount', String(window.scrollY));
+    document.documentElement.setAttribute('data-scroll-direction', scrollingDown ? 'down' : 'up');
+    document.documentElement.setAttribute('data-scroll-progress', scrollProgress);
+    document.documentElement.setAttribute('data-scroll-speed', scrollSpeed);
+    document.documentElement.style.setProperty("--scroll-progress", scrollProgress);
+    document.documentElement.style.setProperty("--scroll-amount", String(window.scrollY));
+    document.documentElement.style.setProperty("--scroll-speed", scrollSpeed);
+    detectIfScrollingHasStopped();
+  }
 }
 
 export const hashChange = (store: SectionStore) => {
@@ -109,10 +115,10 @@ export const hashChange = (store: SectionStore) => {
 }
 
 export const calculateScrollSpeed = (previousScrollProgress: number): string => {
-    const scrollSpeed = Math.abs(window.scrollY - previousScrollProgress);
-    if (scrollSpeed > 5) {
-      return String(scrollSpeed / 100);
-    }
+  const scrollSpeed = Math.abs(window.scrollY - previousScrollProgress);
+  if (scrollSpeed > 5) {
+    return String(scrollSpeed / 100);
+  }
   return String(0);
 }
 
@@ -122,14 +128,23 @@ export const detectIfScrollingHasStopped = (): void => {
     window.cancelAnimationFrame(scrollStopInterval);
   }
   scrollStopInterval = window.requestAnimationFrame(() => {
-      if (position === window.scrollY) {
-        document.documentElement.setAttribute('data-scrolling', 'false');
-        document.documentElement.setAttribute('data-scroll-speed', '0');
-        document.documentElement.style.setProperty("--scroll-speed", '0');
-      } else {
-        document.documentElement.setAttribute('data-scrolling', 'true');
+    if (position === window.scrollY) {
+      document.documentElement.setAttribute('data-scrolling', 'false');
+      document.documentElement.setAttribute('data-scroll-speed', '0');
+      document.documentElement.style.setProperty("--scroll-speed", '0');
+    } else {
+      document.documentElement.setAttribute('data-scrolling', 'true');
     }
 
 
   });
+}
+
+export interface Rows {
+  xs: string;
+  sm: string;
+  md: string;
+  lg: string;
+  xl: string;
+  xxl: string;
 }
