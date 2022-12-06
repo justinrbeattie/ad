@@ -42,7 +42,6 @@
   },
   "dependencies": {
     "@builder.io/sdk-qwik": "^0.0.34",
-    "heroicons-qwik": "^0.1.0",
     "open-props": "^1.5.1",
     "postcss-cli": "^10.0.0",
     "postcss-import": "^15.0.0",
