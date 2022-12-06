@@ -4,15 +4,14 @@
   background: orange;
 }
 
-
-@media (--xs-n-above) {
+@media (min-width: 240px) {
   .content {
     --content-column: var(--xs-column);
     --content-row: var(--xs-row);
   }
 }
 
-@media (--sm-n-above) {
+@media (min-width: 480px) {
 
   .content {
     --content-column:var(--sm-column, var(--xs-column));
@@ -20,7 +19,7 @@
   }
 }
 
-@media (--md-n-above) {
+@media (min-width: 768px) {
 
   .content {
     --content-column: var(--md-column, var(--sm-column, var(--xs-column)));
@@ -28,7 +27,7 @@
   }
 }
 
-@media (--lg-n-above) {
+@media (min-width: 1024px) {
 
   .content {
     --content-column: var(--lg-column, var(--md-column, var(--sm-column, var(--xs-column))));
@@ -36,14 +35,14 @@
   }
 }
 
-@media (--xl-n-above) {
+@media (min-width: 1440px) {
   .content {
     --content-column: var(--xl-column, var(--lg-column, var(--md-column, var(--sm-column, var(--xs-column)))));
     --content-row: var(--xl-row, var(--lg-row, var(--md-row, var(--sm-row, var(--xs-row)))));
   }
 }
 
-@media (--xxl-n-above) {
+@media (min-width: 1920px) {
 
   .content {
     --content-column: var(--xxl-column, var(--xl-column, var(--lg-column, var(--md-column, var(--sm-column, var(--xs-column))))));
