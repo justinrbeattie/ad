@@ -1,0 +1,47 @@
+
+  details {
+    overflow: hidden;
+    margin-bottom: var(--size-1);
+    background: var(--surface-1);
+    transition: all 250ms var(--ease-elastic-1);
+  }
+  
+  details summary {
+    display: flex;
+    align-items: center;
+    padding-block:var(--size-2);
+    background: var(--surface-1);
+    transition: all 100ms var(--ease-elastic-1);
+  }
+  details summary .toggle {
+    display:block;
+    width: 32px;
+    height: 32px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 32px;
+    transform: rotate(0deg);
+    transition: all 250ms var(--ease-elastic-1);
+  }
+  
+  details[open] {
+    box-shadow: var(--shadow-4);
+    margin-bottom: var(--size-3);
+  }
+
+  details[open] .toggle {
+    transform: rotate(90deg);
+  }
+
+  details[open] summary {
+    padding-block:var(--size-3);
+  }
+
+  details[open] > *:last-child {
+    animation: var(--animation-fade-in) forwards;
+  }
+  details:last-of-type,   details[open]:last-of-type {
+    margin-bottom:0px;
+  }

@@ -2,6 +2,7 @@ import { RegisteredComponent } from "@builder.io/sdk-qwik";
 import Main from "~/components/main/main";
 import Section from "~/components/section/section";
 import Content from "~/components/content/content";
+import Accordion from "~/components/accordion/accordion";
 
 export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
   {
@@ -175,6 +176,28 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
           },
         ],
 
+      },
+    ],
+  },
+  {
+    component: Accordion,
+    name: 'Accordion',
+    description:'An Accordion provides an expandable details-summary view.',
+    image: 'https://img.icons8.com/ios/50/null/resize-vertical.png',
+    builtIn: true,
+    noWrap: true,
+    canHaveChildren: true,
+    defaultChildren: [
+      {
+        '@type': '@builder.io/sdk:Element',
+        component: { name: 'Text' }
+      }
+    ],
+    inputs: [
+      {
+        name: 'heading',
+        type: 'string',
+        defaultValue: 'Accordion Heading',
       },
     ],
   },
