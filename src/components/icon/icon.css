@@ -1,4 +1,11 @@
 i {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+i:before {
+  content:attr(data-unicode);
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   display: inline-block;
