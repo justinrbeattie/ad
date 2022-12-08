@@ -213,7 +213,7 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
     inputs: [
       {
         name: 'unicode',
-        type: 'string',
+        type: 'text',
         defaultValue: '&#xf107;',
       },
       {
