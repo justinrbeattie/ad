@@ -11,5 +11,7 @@ i {
   font-variant: normal;
   text-rendering: auto;
   line-height: 1;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

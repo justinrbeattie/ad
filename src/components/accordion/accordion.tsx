@@ -7,7 +7,7 @@ export default component$((props: { heading: string}) => {
   return (
     <details>
     <summary>
-      <div>{props.heading}</div> <Icon unicode="&#xf105;" color="current" size="16px" role="image" ariaLabel="expand"/> 
+    <Icon unicode="&#xf105;" color="current" size="16px" role="image" ariaLabel="expand"/> <div>{props.heading}</div> 
     </summary>
     <div>
       <Slot></Slot>
