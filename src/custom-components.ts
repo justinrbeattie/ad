@@ -7,6 +7,8 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
   {
     component: Main,
     name: 'Main',
+    description:'This element represents the dominant content of the page.',
+    image: 'https://img.icons8.com/ios/50/null/overview-pages-1.png',
     builtIn: true,
     noWrap: true,
     canHaveChildren: true,
@@ -26,6 +28,8 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
   {
     component: Section,
     name: 'Section',
+    description:'A section is a thematic grouping of content, typically with a heading',
+    image: 'https://img.icons8.com/ios/50/null/continuous-mode.png',
     builtIn: true,
     noWrap: true,
     canHaveChildren: true,
@@ -88,6 +92,8 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
   {
     component: Content,
     name: 'Content',
+    description:'This element is a child of a section & usually contains general content such as images & text. This element also is a CSS grid child with settings to control size & position.',
+    image: 'https://img.icons8.com/ios/50/null/content.png',
     builtIn: true,
     noWrap: true,
     canHaveChildren: true,
