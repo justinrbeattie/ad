@@ -13,7 +13,7 @@
     background: var(--surface-1);
     transition: all 100ms var(--ease-elastic-1);
   }
-  details summary .toggle {
+  details summary i{
     display:block;
     width: 32px;
     height: 32px;
@@ -31,7 +31,7 @@
     margin-bottom: var(--size-3);
   }
 
-  details[open] i {
+  details[open] summary i {
     transform: rotate(90deg);
   }
 
