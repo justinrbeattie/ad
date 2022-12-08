@@ -219,7 +219,7 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
       {
         name: 'color',
         type: 'text',
-        enum: ['current','brand', 'success', 'warning', 'danger'],
+        enum: ['current','brand', 'success','info', 'warning', 'danger'],
         defaultValue: '24px',
       },
       {
