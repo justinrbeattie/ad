@@ -5,6 +5,10 @@
   z-index: var(--layer-1);
 }
 
+.content > * {
+  z-index: var(--layer-2);
+}
+
 @media (min-width: 240px) {
   .content {
     --content-column: var(--xs-column);
