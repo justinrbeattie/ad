@@ -6,7 +6,7 @@ export default component$(() => {
 
   return (
     <i>
-      &#xf368;
+      &#xf107;
     </i>
   );
 });

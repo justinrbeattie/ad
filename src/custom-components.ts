@@ -217,6 +217,12 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
         defaultValue: '&#xf107;',
       },
       {
+        name: 'size',
+        type: 'text',
+        enum: ['16px', '24px', '32px', '48px', '64px'],
+        defaultValue: '24px',
+      },
+      {
         name: 'role',
         type: 'string',
         defaultValue: 'img',
