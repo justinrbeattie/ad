@@ -2,7 +2,7 @@
   grid-column: var(--content-column);
   grid-row: var(--content-row);
   background: orange;
-  z-index:--layer-1;
+  z-index: var(--layer-1);
 }
 
 @media (min-width: 240px) {
