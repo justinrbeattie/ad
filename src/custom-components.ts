@@ -3,6 +3,7 @@ import Main from "~/components/main/main";
 import Section from "~/components/section/section";
 import Content from "~/components/content/content";
 import Accordion from "~/components/accordion/accordion";
+import Icon from "~/components/icon/icon";
 
 export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
   {
@@ -201,7 +202,30 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
       },
     ],
   },
+
+  {
+    component: Icon,
+    name: 'Icon',
+    description:'A symbol or graphic representation on a screen of a program, option, or window.',
+    image: 'https://img.icons8.com/ios/50/null/large-icons.png',
+    builtIn: true,
+    noWrap: true,
+    inputs: [
+      {
+        name: 'unicode',
+        type: 'string',
+        defaultValue: '&#xf107;',
+      },
+      {
+        name: 'role',
+        type: 'string',
+        defaultValue: 'img',
+      },
+      {
+        name: 'aria-label',
+        type: 'string',
+        defaultValue: 'arrow',
+      },
+    ],
+  },
 ];
-
-/* Add rows object  */
-
