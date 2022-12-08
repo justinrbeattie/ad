@@ -11,7 +11,7 @@ export default component$((props:{ unicode: string, color: 'current'|'brand'| 's
     }
   });
   return (
-    <i style={{'font-size': props.size, 'color': ' --' + props.color + ' '}}  role={props.role} arial-label={props.ariaLabel}  ref={iconRef}>
+    <i style={{'font-size': props.size, 'color': ' var(--' + props.color + ') '}}  role={props.role} arial-label={props.ariaLabel}  ref={iconRef}>
 
     </i>
   );
