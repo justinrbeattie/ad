@@ -6,7 +6,7 @@ export default component$((props:{ unicode: string, color: string, size: string,
 
   return (
     <i style={{'font-size': props.size}}  role={props.role} arial-label={props.ariaLabel}>
-    {props.unicode}
+    {props.unicode.replace(/&amp;/g, '&')}
     </i>
   );
 });
