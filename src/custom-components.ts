@@ -217,6 +217,12 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
         defaultValue: '&#xf107;',
       },
       {
+        name: 'color',
+        type: 'text',
+        enum: ['current','brand', 'success', 'warning', 'danger'],
+        defaultValue: '24px',
+      },
+      {
         name: 'size',
         type: 'text',
         enum: ['16px', '24px', '32px', '48px', '64px'],
