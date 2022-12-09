@@ -200,6 +200,11 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
         type: 'string',
         defaultValue: 'Accordion Heading',
       },
+      {
+        name: 'open',
+        type: 'boolean',
+        defaultValue: false,
+      },
     ],
   },
 
