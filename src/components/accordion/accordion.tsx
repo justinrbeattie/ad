@@ -12,7 +12,7 @@ export default component$((props: { heading: string}) => {
   return (
     <details>
     <summary>
-    <Icon svg={svg} color="current" size="16px" role="image" title={'Expand or collapse ' + props.heading + ' Detail'}/> <div class="summary-heading">{props.heading}</div> 
+    <Icon svg={svg} color="current" size="16px" role="image" title={'Expand or collapse ' + props.heading + ' Detail'}/> <div class="summary-heading"> fdhjdfsghdsf </div> 
     </summary>
     <div>
       <Slot></Slot>
