@@ -20,7 +20,7 @@ export default component$(() => {
         <link rel="manifest" href="/manifest.json" />
         <RouterHead />
       </head>
-      <body lang="en"window:onResize$={() => {
+      <body className={builder ? '' : ''} lang="en"window:onResize$={() => {
         store.pageHeight = window.innerHeight;
       }} style={{'--page-height': store.pageHeight}}>
         <RouterOutlet />

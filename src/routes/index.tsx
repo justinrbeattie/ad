@@ -1,6 +1,6 @@
 import { component$, Resource, useResource$ } from "@builder.io/qwik";
 import { useLocation } from "@builder.io/qwik-city";
-import { getContent, RenderContent, getBuilderSearchParams } from "@builder.io/sdk-qwik";
+import { getContent, RenderContent, getBuilderSearchParams} from "@builder.io/sdk-qwik";
 import { CUSTOM_COMPONENTS } from "~/custom-components";
 
 export const BUILDER_PUBLIC_API_KEY = "e2743f60012d408688bf050e1e8606dc";
