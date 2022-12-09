@@ -3,8 +3,9 @@ import { useLocation } from '@builder.io/qwik-city';
 
 export default component$((props: {attributes: any}) => {
   const location = useLocation();
+
   return (
-    <main class={location.query.__builder_editing__ === 'true'? 'editing' : ''} {...props.attributes} >
+    <main className={location.query.__builder_editing__ === 'true'? 'editing' : ''} {...props.attributes} >
       <Slot></Slot>
     </main>
   );
