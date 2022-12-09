@@ -1,6 +1,7 @@
 import { component$, useClientEffect$, useSignal, useStore, useStyles$ } from '@builder.io/qwik';
 import Icon from '../icon/icon';
 import styles from './carousel.css?inline';
+import CarouselListItem from './carousel-item';
 
 export interface CarouselStore {
   carouselElement: undefined | HTMLElement;
@@ -34,42 +35,18 @@ export default component$((props: { attributes: any }) => {
         <Icon svg={svg} color="current" size="16px" title={'Previous Items'} />
       </button>
       <ul ref={ulRef} >
-        <li is="carousel-list-item">
-          <article>SLIDE 1</article>
-        </li>
-        <li is="carousel-list-item">
-          <article>SLIDE 2</article>
-        </li>
-        <li is="carousel-list-item">
-          <article>SLIDE 3</article>
-        </li>
-        <li is="carousel-list-item">
-          <article>SLIDE 4</article>
-        </li>
-        <li is="carousel-list-item">
-          <article>SLIDE 5</article>
-        </li>
-        <li is="carousel-list-item">
-          <article>SLIDE 6</article>
-        </li>
-        <li is="carousel-list-item">
-          <article>SLIDE 7</article>
-        </li>
-        <li is="carousel-list-item">
-          <article>SLIDE 8</article>
-        </li>
-        <li is="carousel-list-item">
-          <article>SLIDE 9</article>
-        </li>
-        <li is="carousel-list-item">
-          <article>SLIDE 10</article>
-        </li>
-        <li is="carousel-list-item">
-          <article>SLIDE 11</article>
-        </li>
-        <li is="carousel-list-item">
-          <article>SLIDE 12</article>
-        </li>
+      <CarouselListItem></CarouselListItem>
+      <CarouselListItem></CarouselListItem>
+      <CarouselListItem></CarouselListItem>
+      <CarouselListItem></CarouselListItem>
+      <CarouselListItem></CarouselListItem>
+      <CarouselListItem></CarouselListItem>
+      <CarouselListItem></CarouselListItem>
+      <CarouselListItem></CarouselListItem>
+      <CarouselListItem></CarouselListItem>
+      <CarouselListItem></CarouselListItem>
+      <CarouselListItem></CarouselListItem>
+      <CarouselListItem></CarouselListItem>
       </ul>
       <button onClick$={() => store.ulElement?.scrollTo({left:store.ulElement.scrollLeft + ((store.carouselElement?.clientWidth || window.innerWidth )/ 2)})}>
         <Icon svg={svg} color="current" size="16px" title={'Previous Items'} />

@@ -8,7 +8,7 @@ export interface CarouselItemStore {
   intersectionRatio: string;
 }
 export let intersectionObserver: undefined | IntersectionObserver = undefined;
-export default component$((props: { attributes: any }) => {
+export default component$((props: { attributes?: any }) => {
   useStyles$(styles);
   const store: CarouselItemStore = useStore({
     progress: 0,
