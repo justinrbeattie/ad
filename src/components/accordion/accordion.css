@@ -19,7 +19,7 @@
     transition: all 250ms var(--ease-elastic-1);
   }
 
-  details summary summary-heading {
+  details summary .summary-heading {
     flex-grow:1;
   }
   
