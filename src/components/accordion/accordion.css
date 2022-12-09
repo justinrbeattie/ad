@@ -20,6 +20,9 @@
   }
 
   details summary .summary-heading {
+    max-width:320px;
+    height:40px;
+    line-height:40px;
     flex-grow:1;
   }
   
