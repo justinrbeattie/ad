@@ -13,13 +13,12 @@
 .editing .content {
   &:empty {
     border: 2px dashed red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &:before {
       content: 'Empty Content Block';
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      line-height: 100%;
       color: red;
     }
   }
