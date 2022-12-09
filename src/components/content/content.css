@@ -1,13 +1,8 @@
 .content {
   grid-column: var(--content-column);
   grid-row: var(--content-row);
-  z-index: var(--layer-1);
-
 }
 
-.content>* {
-  z-index: var(--layer-2);
-}
 
 
 .editing .content {

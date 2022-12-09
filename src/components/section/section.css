@@ -54,6 +54,7 @@ section {
     grid-column: col 1 / span 12;
     grid-row: row 1 / -2;
     border: dashed 1px gray;
+    z-index:-1;
   }
 
   &:after {
@@ -61,6 +62,7 @@ section {
     grid-column: 1 / -1;
     grid-row: 1 / -1;
     border: dashed 1px gray;
+    z-index:-1;
   }
 }
 

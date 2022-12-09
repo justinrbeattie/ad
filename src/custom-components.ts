@@ -229,11 +229,6 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
         defaultValue: '24px',
       },
       {
-        name: 'role',
-        type: 'string',
-        defaultValue: 'img',
-      },
-      {
         name: 'title',
         type: 'string',
         defaultValue: 'Expand collapse my content accordion',
