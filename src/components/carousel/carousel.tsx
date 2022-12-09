@@ -1,9 +1,18 @@
-import { component$, useClientEffect$, useSignal, useStyles$ } from '@builder.io/qwik';
+import { component$, useClientEffect$, useSignal, useStore, useStyles$ } from '@builder.io/qwik';
 import Icon from '../icon/icon';
 import styles from './carousel.css?inline';
 
+export interface CarouselStore {
+  carouselElement: undefined | HTMLElement;
+  ulElement: undefined | HTMLElement;
+}
+
 export default component$((props: { attributes: any }) => {
   useStyles$(styles);
+  const store: CarouselStore = useStore({
+    carouselElement: undefined,
+    ulElement: undefined,
+  });
   const carouselRef = useSignal<Element>();
   const ulRef = useSignal<Element>();
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
@@ -14,13 +23,14 @@ export default component$((props: { attributes: any }) => {
 
   useClientEffect$(() => {
     if (carouselRef && ulRef) {
-
-      /*       intersectionObserverInit(store); */
+      store.carouselElement = carouselRef.value as HTMLElement;
+      store.ulElement = ulRef.value as HTMLElement;
     }
+
   });
   return (
     <div carousel="" ref={carouselRef}  {...props.attributes} class="carousel">
-      <button onClick$={() => console.log(this)}>
+      <button onClick$={() => store.ulElement?.scrollTo({left:store.ulElement.scrollLeft - ((store.carouselElement?.clientWidth || window.innerWidth )/ 2)})}>
         <Icon svg={svg} color="current" size="16px" title={'Previous Items'} />
       </button>
       <ul ref={ulRef} >
@@ -61,8 +71,8 @@ export default component$((props: { attributes: any }) => {
           <article>SLIDE 12</article>
         </li>
       </ul>
-      <button onClick$={() => console.log(this)}>
-      <Icon svg={svg} color="current" size="16px" title={'Previous Items'} />
+      <button onClick$={() => store.ulElement?.scrollTo({left:store.ulElement.scrollLeft + ((store.carouselElement?.clientWidth || window.innerWidth )/ 2)})}>
+        <Icon svg={svg} color="current" size="16px" title={'Previous Items'} />
       </button>
     </div>
   );
