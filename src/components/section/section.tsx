@@ -35,7 +35,7 @@ export default component$((props: { id: string, rows: Rows, attributes: any }) =
   });
 
   return (
-    <section   {...props.attributes} data-visible={String(store.visible)}
+    <section   {...props.attributes} data-visible={String(store.visible) || String(false)}
       style={{ '--animation-progress': store.progress, ...rowStyle }}
       ref={sectionRef}>
       <div className={

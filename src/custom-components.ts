@@ -25,7 +25,13 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
       query: {
         'component.name': { $in: ['Section'] },
       }
-    }
+    },
+    inputs: [
+      {
+        name: 'editMode',
+        type: 'code',
+        defaultValue: '',
+      },]
   },
   {
     component: Section,

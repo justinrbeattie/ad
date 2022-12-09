@@ -4,8 +4,6 @@ section {
   align-items: center;
   position: relative;
   width: 100vw;
-  content-visibility: auto;
-  contain-intrinsic-size: 100vw calc(var(--page-grid-rows) * max(70px, calc(10vh - var(--page-grid-gap))));
   --page-grid-template-columns: [left-gutter] var(--page-grid-gutter-x) [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col right-gutter] var(--page-grid-gutter-x);
   --page-grid--template-rows: [top-gutter] var(--page-grid-gutter-y) repeat(var(--page-grid-rows), [row] minmax(70px, calc(10vh - var(--page-grid-gap)))) [bottom-gutter] var(--page-grid-gutter-y);
 
@@ -49,6 +47,15 @@ section {
       height: calc(100vh - 2px);
     }
 
+  }
+
+
+  &section .content > *, &[data-visible="true"]  .content > *{
+    content-visibility: visible;
+  }
+
+  &[data-visible="false"] .content > *  {
+    content-visibility: hidden;
   }
 
 
