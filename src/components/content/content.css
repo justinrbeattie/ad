@@ -1,6 +1,11 @@
 .content {
   grid-column: var(--content-column);
   grid-row: var(--content-row);
+  position:relative;
+
+  &> *{
+    position:relative;
+  }
 }
 
 
