@@ -1,17 +1,17 @@
-
 i {
-  content:attr(data-unicode);
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  display: inline-block;
-  font-family: 'Icons';
-  font-weight: 900;
-  font-size:32px;
-  font-style: normal;
-  font-variant: normal;
-  text-rendering: auto;
-  line-height: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: calc(var(--icon-size) + 8px);
+  height: calc(var(--icon-size) + 8px);
+
+  & svg {
+    width: var(--icon-size) !important;
+    height: var(--icon-size) !important;
+  }
+
+  & svg > * {
+    fill: currentColor !important;
+  }
+
 }

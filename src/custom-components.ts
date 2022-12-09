@@ -212,9 +212,9 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
     noWrap: true,
     inputs: [
       {
-        name: 'unicode',
-        type: 'text',
-        defaultValue: '&#xf107;',
+        name: 'svg',
+        type: 'longText',
+        defaultValue: '',
       },
       {
         name: 'color',
@@ -234,9 +234,9 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
         defaultValue: 'img',
       },
       {
-        name: 'aria-label',
+        name: 'title',
         type: 'string',
-        defaultValue: 'arrow',
+        defaultValue: 'Expand collapse my content accordion',
       },
     ],
   },

@@ -14,17 +14,6 @@
   src: url("./fonts/Inter-roman.var.woff2") format("woff2");
 }
 
-@font-face {
-  font-family: 'Icons';
-  font-display: swap;
-  font-style: normal;
-  font-weight: 900;
-  font-display: auto;
-  src: url("./icons/la-solid-900.woff2") format("woff2");
-}
-
-
-
 :root {
   --page-width: 100vw;
   --page-height: 100vh;
