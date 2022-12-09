@@ -14,8 +14,13 @@
     transition: all 250ms var(--ease-elastic-1);
   }
   details summary i{
+    flex-shrink: 0;
     transform: rotate(0deg);
     transition: all 250ms var(--ease-elastic-1);
+  }
+
+  details summary summary-heading {
+    flex-grow:1;
   }
   
   details[open] {
