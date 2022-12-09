@@ -1,0 +1,106 @@
+[carousel] {
+  --carousel-wrapper-width: 100%;
+  --carousel-gap: var(--size-7);
+}
+
+article {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 500px;
+  background: var(--surface-2);
+  transition: all 0s var(--ease-elastic-1);
+}
+
+
+
+
+[carousel] {
+  width: var(--carousel-wrapper-width, 100%);
+  background: inherit;
+  display: flex;
+  align-items: center;
+  flex-flow: row nowrap;
+  position: relative;
+}
+
+[carousel]>ul {
+  background: inherit;
+  scroll-snap-type: x mandatory;
+  scroll-snap-stop: always;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  overflow-x: scroll;
+  width: var(--carousel-wrapper-width);
+  gap: var(--carousel-gap);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  margin: 0;
+  padding: 0 calc(var(--carousel-gap) * 2);
+  flex-shrink: 0;
+  flex-grow: 1;
+  --mask:
+    linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) calc(var(--carousel-gap) * 2), rgba(0, 0, 0, 1) calc(100% - var(--carousel-gap) * 2), rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-image: var(--mask);
+  mask-image: var(--mask);
+  scroll-behavior: smooth;
+}
+
+[carousel]>ul::-webkit-scrollbar {
+  display: none;
+}
+
+[carousel] ul>li {
+  position: relative;
+  scroll-snap-align: start;
+  display: flex;
+  flex: 0 0 auto;
+  scroll-margin: 0 calc(var(--carousel-gap) * 2);
+  padding: 0;
+  max-width: unset;
+  transition: all .25s var(--ease-elastic-1);
+}
+
+[carousel]>button {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(var(--carousel-gap) * 2);
+  height: calc(var(--carousel-gap) * 2);
+  padding: 0;
+  border-radius: var(--size-7);
+  border: none;
+  background: none;
+  box-shadow: none;
+  text-shadow: none;
+  font-size: var(--size-7);
+  z-index: var(--layer-1);
+  transition: all 1s var(--ease-elastic-1);
+}
+
+[carousel]>button:first-child {
+  left: calc(var(--carousel-gap) * .25);
+}
+
+[carousel]>button:last-child {
+  right: calc(var(--carousel-gap) * .25);
+}
+
+[carousel]:has([data-visible*="true"]:first-child)>button:first-child,
+[carousel]:has([data-visible*="true"]:last-child)>button:last-child {
+  width: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+[is="carousel-list-item"][data-invisible="false"]>* {
+  content-visibility: visible;
+  animation: var(--animation-fade-in) forwards;
+}
+
+[is="carousel-list-item"][data-invisible="true"]>* {
+  content-visibility: hidden;
+}

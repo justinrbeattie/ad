@@ -4,6 +4,7 @@ import Section from "~/components/section/section";
 import Content from "~/components/content/content";
 import Accordion from "~/components/accordion/accordion";
 import Icon from "~/components/icon/icon";
+import Carousel from "~/components/carousel/carousel";
 
 export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
   {
@@ -239,5 +240,14 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
         defaultValue: 'Expand collapse my content accordion',
       },
     ],
+  },
+
+  {
+    component: Carousel,
+    name: 'Carousel',
+    description:'A symbol or graphic representation on a screen of a program, option, or window.',
+    image: 'https://img.icons8.com/ios/50/null/large-icons.png',
+    builtIn: true,
+    noWrap: true,
   },
 ];
