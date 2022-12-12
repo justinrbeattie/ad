@@ -59,10 +59,17 @@ article {
   flex: 0 0 auto;
   scroll-margin: 0 calc(var(--carousel-gap) * 2);
   padding: 0;
-  min-width:var(--min-width);
-  min-width:var(--min-width);
+  min-width: var(--min-width);
+  min-height: var(--min-height);
   max-width: unset;
   transition: all .25s var(--ease-elastic-1);
+}
+
+.editing [carousel] ul>li:empty {
+  border: 2px dashed red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 [carousel]>button {
