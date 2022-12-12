@@ -1,4 +1,5 @@
 import { component$, useClientEffect$, useSignal, useStore, useStyles$ } from '@builder.io/qwik';
+import { CarouselItem } from './carousel';
 import styles from './carousel-item.css?inline';
 
 export interface CarouselItemStore {
@@ -8,7 +9,7 @@ export interface CarouselItemStore {
   intersectionRatio: string;
 }
 export let intersectionObserver: undefined | IntersectionObserver = undefined;
-export default component$((props: { attributes?: any }) => {
+export default component$((props: { carouselItem:CarouselItem,  attributes?: any }) => {
   useStyles$(styles);
   const store: CarouselItemStore = useStore({
     progress: 0,

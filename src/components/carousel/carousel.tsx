@@ -8,7 +8,11 @@ export interface CarouselStore {
   ulElement: undefined | HTMLElement;
 }
 
-export default component$((props: { attributes: any }) => {
+export interface CarouselItem {
+  width: string, height: string
+}
+
+export default component$((props: { attributes: any, carouselItems: CarouselItem[]; }) => {
   useStyles$(styles);
   const store: CarouselStore = useStore({
     carouselElement: undefined,
@@ -31,26 +35,27 @@ export default component$((props: { attributes: any }) => {
   });
   return (
     <div carousel="" ref={carouselRef}  {...props.attributes} class="carousel">
-      <button onClick$={() => store.ulElement?.scrollTo({left:store.ulElement.scrollLeft - ((store.carouselElement?.clientWidth || window.innerWidth )/ 2)})}>
+      <button onClick$={() => store.ulElement?.scrollTo({ left: store.ulElement.scrollLeft - ((store.carouselElement?.clientWidth || window.innerWidth) / 2) })}>
         <Icon svg={svg} color="current" size="16px" title={'Previous Items'} />
       </button>
       <ul ref={ulRef} >
-      <CarouselListItem></CarouselListItem>
-      <CarouselListItem></CarouselListItem>
-      <CarouselListItem></CarouselListItem>
-      <CarouselListItem></CarouselListItem>
-      <CarouselListItem></CarouselListItem>
-      <CarouselListItem></CarouselListItem>
-      <CarouselListItem></CarouselListItem>
-      <CarouselListItem></CarouselListItem>
-      <CarouselListItem></CarouselListItem>
-      <CarouselListItem></CarouselListItem>
-      <CarouselListItem></CarouselListItem>
-      <CarouselListItem></CarouselListItem>
+        {props.carouselItems.map((carouselItem) => {
+          return <CarouselListItem carouselItem={carouselItem}></CarouselListItem>;
+        })}
       </ul>
-      <button onClick$={() => store.ulElement?.scrollTo({left:store.ulElement.scrollLeft + ((store.carouselElement?.clientWidth || window.innerWidth )/ 2)})}>
+      <button onClick$={() => store.ulElement?.scrollTo({ left: store.ulElement.scrollLeft + ((store.carouselElement?.clientWidth || window.innerWidth) / 2) })}>
         <Icon svg={svg} color="current" size="16px" title={'Previous Items'} />
       </button>
     </div>
   );
 });
+
+/* 
+Create component List 
+  Default Width / height for each item
+  Add slot to each item 
+  Add overall scroll position & progress to outer component 
+  Add arial labels 
+  Add Dots 
+
+*/
