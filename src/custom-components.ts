@@ -10,7 +10,7 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
   {
     component: Main,
     name: 'Main',
-    description:'This element represents the dominant content of the page.',
+    description: 'This element represents the dominant content of the page.',
     image: 'https://img.icons8.com/ios/50/null/overview-pages-1.png',
     builtIn: true,
     noWrap: true,
@@ -31,7 +31,7 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
   {
     component: Section,
     name: 'Section',
-    description:'A section is a thematic grouping of content, typically with a heading',
+    description: 'A section is a thematic grouping of content, typically with a heading',
     image: 'https://img.icons8.com/ios/50/null/continuous-mode.png',
     builtIn: true,
     noWrap: true,
@@ -95,7 +95,7 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
   {
     component: Content,
     name: 'Content',
-    description:'This element is a child of a section & usually contains general content such as images & text. This element also is a CSS grid child with settings to control size & position.',
+    description: 'This element is a child of a section & usually contains general content such as images & text. This element also is a CSS grid child with settings to control size & position.',
     image: 'https://img.icons8.com/ios/50/null/content.png',
     builtIn: true,
     noWrap: true,
@@ -184,7 +184,7 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
   {
     component: Accordion,
     name: 'Accordion',
-    description:'An Accordion provides an expandable details-summary view.',
+    description: 'An Accordion provides an expandable details-summary view.',
     image: 'https://img.icons8.com/ios/50/null/resize-vertical.png',
     builtIn: true,
     noWrap: true,
@@ -212,7 +212,7 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
   {
     component: Icon,
     name: 'Icon',
-    description:'A symbol or graphic representation on a screen of a program, option, or window.',
+    description: 'A symbol or graphic representation on a screen of a program, option, or window.',
     image: 'https://img.icons8.com/ios/50/null/large-icons.png',
     builtIn: true,
     noWrap: true,
@@ -225,7 +225,7 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
       {
         name: 'color',
         type: 'text',
-        enum: ['current','brand', 'success','info', 'warning', 'danger'],
+        enum: ['current', 'brand', 'success', 'info', 'warning', 'danger'],
         defaultValue: 'brand',
       },
       {
@@ -245,9 +245,51 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
   {
     component: Carousel,
     name: 'Carousel',
-    description:'A symbol or graphic representation on a screen of a program, option, or window.',
+    description: 'A symbol or graphic representation on a screen of a program, option, or window.',
     image: 'https://img.icons8.com/ios/50/null/large-icons.png',
     builtIn: true,
     noWrap: true,
+    inputs: [
+      {
+        name: 'CarouselItems',
+        type: 'list',
+        defaultValue: [
+          {
+            width: '400px',
+            height: '400px',
+          },
+          {
+            width: '400px',
+            height: '400px',
+          },
+          {
+            width: '400px',
+            height: '400px',
+          }, {
+            width: '400px',
+            height: '400px',
+          }, {
+            width: '400px',
+            height: '400px',
+          }, {
+            width: '400px',
+            height: '400px',
+          }
+
+        ],
+        subFields: [
+          {
+            name: 'width',
+            type: 'string',
+            defaultValue: '400px'
+          },
+          {
+            name: 'height',
+            type: 'string',
+            defaultValue: '100%',
+          }
+        ],
+      }
+    ]
   },
 ];
