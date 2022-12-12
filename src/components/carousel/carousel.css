@@ -59,6 +59,8 @@ article {
   flex: 0 0 auto;
   scroll-margin: 0 calc(var(--carousel-gap) * 2);
   padding: 0;
+  min-width:var(--min-width);
+  min-width:var(--min-width);
   max-width: unset;
   transition: all .25s var(--ease-elastic-1);
 }
