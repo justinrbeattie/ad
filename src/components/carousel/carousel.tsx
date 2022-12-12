@@ -39,7 +39,7 @@ export default component$((props: { attributes: any, carouselItems: CarouselItem
         <Icon svg={svg} color="current" size="16px" title={'Previous Items'} />
       </button>
       <ul ref={ulRef} >
-        {props.carouselItems.map((carouselItem) => {
+        {props.carouselItems?.map((carouselItem) => {
           return <CarouselListItem carouselItem={carouselItem}></CarouselListItem>;
         })}
       </ul>

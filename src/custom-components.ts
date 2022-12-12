@@ -251,7 +251,7 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
     noWrap: true,
     inputs: [
       {
-        name: 'CarouselItems',
+        name: 'carouselItems',
         type: 'list',
         defaultValue: [
           {
