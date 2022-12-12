@@ -256,26 +256,8 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
         defaultValue: [
           {
             width: '400px',
-            height: '400px',
-          },
-          {
-            width: '400px',
-            height: '400px',
-          },
-          {
-            width: '400px',
-            height: '400px',
-          }, {
-            width: '400px',
-            height: '400px',
-          }, {
-            width: '400px',
-            height: '400px',
-          }, {
-            width: '400px',
-            height: '400px',
+            height: '100%',
           }
-
         ],
         subFields: [
           {

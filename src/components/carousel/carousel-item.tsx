@@ -1,4 +1,4 @@
-import { component$, useClientEffect$, useSignal, useStore, useStyles$ } from '@builder.io/qwik';
+import { component$, Slot, useClientEffect$, useSignal, useStore, useStyles$ } from '@builder.io/qwik';
 import { CarouselItem } from './carousel';
 import styles from './carousel-item.css?inline';
 
@@ -27,8 +27,8 @@ export default component$((props: { carouselItem:CarouselItem,  attributes?: any
 
   });
   return (
-    <li ref={carouselItemRef}  {...props.attributes}  data-visible={String(store.visible) || String(false)}  style={{ '--animation-progress': store.progress, '--intersection-ratio': store.intersectionRatio }}>
-      <article>SLIDE 1</article>
+    <li ref={carouselItemRef}  {...props.attributes}  data-visible={String(store.visible) || String(false)}  style={{ '--animation-progress': store.progress, '--intersection-ratio': store.intersectionRatio, '--min-width': props.carouselItem.width, '--min-height': props.carouselItem.height }}>
+      <Slot></Slot>
     </li>
   );
 });
