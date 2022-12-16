@@ -5,6 +5,7 @@ import Content from "~/components/content/content";
 import Accordion from "~/components/accordion/accordion";
 import Icon from "~/components/icon/icon";
 import Carousel from "~/components/carousel/carousel";
+import CarouselItem from "./components/carousel/carousel-item";
 
 export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
   {
@@ -249,28 +250,37 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
     image: 'https://img.icons8.com/ios/50/null/large-icons.png',
     builtIn: true,
     noWrap: true,
+    canHaveChildren: true,
+    defaultChildren: [
+      {
+        '@type': '@builder.io/sdk:Element',
+        component: { name: 'Carousel Item'}
+      }
+    ],
+    childRequirements: {
+      message: 'You can only put Carousel Item Blocks in a Carousel',
+      query: {
+        'component.name': { $in: ['Carousel Item'] },
+      }
+    },
+  },
+  {
+    component: CarouselItem,
+    name: 'Carousel Item',
+    description: 'A symbol or graphic representation on a screen of a program, option, or window.',
+    image: 'https://img.icons8.com/ios/50/null/large-icons.png',
+    builtIn: true,
+    noWrap: true,
     inputs: [
       {
-        name: 'carouselItems',
-        type: 'list',
-        defaultValue: [
-          {
-            width: '400px',
-            height: '100%',
-          }
-        ],
-        subFields: [
-          {
-            name: 'width',
-            type: 'string',
-            defaultValue: '400px'
-          },
-          {
-            name: 'height',
-            type: 'string',
-            defaultValue: '100%',
-          }
-        ],
+        name: 'width',
+        type: 'string',
+        defaultValue: '400px'
+      },
+      {
+        name: 'height',
+        type: 'string',
+        defaultValue: '100%',
       }
     ]
   },

@@ -65,7 +65,7 @@ article {
   transition: all .25s var(--ease-elastic-1);
 }
 
-.editing [carousel] ul>li:empty {
+ [carousel] ul>li:empty {
   border: 2px dashed red;
   display: flex;
   justify-content: center;

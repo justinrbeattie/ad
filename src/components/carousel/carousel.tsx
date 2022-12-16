@@ -1,7 +1,6 @@
 import { component$, useClientEffect$, useSignal, useStore, useStyles$ } from '@builder.io/qwik';
 import Icon from '../icon/icon';
 import styles from './carousel.css?inline';
-import CarouselListItem from './carousel-item';
 
 export interface CarouselStore {
   carouselElement: undefined | HTMLElement;
@@ -12,7 +11,7 @@ export interface CarouselItem {
   width: string, height: string
 }
 
-export default component$((props: { attributes: any, carouselItems: CarouselItem[]; }) => {
+export default component$((props: { attributes: any }) => {
   useStyles$(styles);
   const store: CarouselStore = useStore({
     carouselElement: undefined,
@@ -39,9 +38,7 @@ export default component$((props: { attributes: any, carouselItems: CarouselItem
         <Icon svg={svg} color="current" size="16px" title={'Previous Items'} />
       </button>
       <ul ref={ulRef} >
-        {props.carouselItems?.map((carouselItem) => {
-          return <CarouselListItem carouselItem={carouselItem}></CarouselListItem>;
-        })}
+        {/*     <CarouselListItem ></CarouselListItem> */}
       </ul>
       <button onClick$={() => store.ulElement?.scrollTo({ left: store.ulElement.scrollLeft + ((store.carouselElement?.clientWidth || window.innerWidth) / 2) })}>
         <Icon svg={svg} color="current" size="16px" title={'Previous Items'} />
