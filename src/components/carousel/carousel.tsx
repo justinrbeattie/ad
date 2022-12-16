@@ -1,4 +1,4 @@
-import { component$, useClientEffect$, useSignal, useStore, useStyles$ } from '@builder.io/qwik';
+import { component$, Slot, useClientEffect$, useSignal, useStore, useStyles$ } from '@builder.io/qwik';
 import Icon from '../icon/icon';
 import styles from './carousel.css?inline';
 
@@ -38,7 +38,7 @@ export default component$((props: { attributes: any }) => {
         <Icon svg={svg} color="current" size="16px" title={'Previous Items'} />
       </button>
       <ul ref={ulRef} >
-        {/*     <CarouselListItem ></CarouselListItem> */}
+        <Slot></Slot>
       </ul>
       <button onClick$={() => store.ulElement?.scrollTo({ left: store.ulElement.scrollLeft + ((store.carouselElement?.clientWidth || window.innerWidth) / 2) })}>
         <Icon svg={svg} color="current" size="16px" title={'Previous Items'} />
