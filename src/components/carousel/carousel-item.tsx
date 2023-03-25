@@ -2,17 +2,21 @@ import { component$, Slot, useClientEffect$, useSignal, useStore, useStyles$ } f
 import styles from './carousel-item.css?inline';
 
 export interface CarouselItemStore {
-  progress: number;
+  progress: string;
   visible: boolean;
+  partiallyVisible: boolean;
+  invisible: boolean;
   carouselItemElement: undefined | HTMLElement;
   intersectionRatio: string;
 }
 export let intersectionObserver: undefined | IntersectionObserver = undefined;
-export default component$((props: { width: string, height: string,  attributes?: any }) => {
+export default component$((props: { width: string, attributes?: any }) => {
   useStyles$(styles);
   const store: CarouselItemStore = useStore({
-    progress: 0,
+    progress: '0',
     visible: false,
+    partiallyVisible: false,
+    invisible: true,
     carouselItemElement: undefined,
     intersectionRatio: ''
   });
@@ -26,8 +30,13 @@ export default component$((props: { width: string, height: string,  attributes?:
 
   });
   return (
-    <li ref={carouselItemRef}  {...props.attributes}  data-visible={String(store.visible) || String(false)}  style={{ '--animation-progress': store.progress, '--intersection-ratio': store.intersectionRatio, '--min-width': props.width, '--min-height': props.height }}>
+    <li ref={carouselItemRef}  {...props.attributes} 
+    data-visible={String(store.visible) || String(false)} 
+    data-partially-visible={String(store.partiallyVisible) || String(false)} 
+    data-invisible={String(store.invisible) || String(false)} 
+    style={{ '--intersection-ratio': store.intersectionRatio, '--min-width': props.width }}>
       <Slot></Slot>
+      {store.progress}
     </li>
   );
 });
@@ -45,19 +54,28 @@ export const intersectionObserverInit = (store: CarouselItemStore) => {
     intersectionObserver.observe(
       store.carouselItemElement
     );
+    setItemProgress(store);
   }
 }
 
 export const _intersectionCallback = (store: CarouselItemStore, entries: IntersectionObserverEntry[]) => {
   entries.forEach((entry) => {
-    let ratio = 100;
-    if (entry.boundingClientRect.top > 0) {
-      ratio = 100 - (100 - entry.intersectionRatio * 50);
-    } else {
-      ratio = 100 - entry.intersectionRatio * 50;
-    }
     store.intersectionRatio = Math.round(entry.intersectionRatio * 100) + "%";
-    store.progress = Math.round((ratio / 100) * 10000) / 10000;
-    store.visible = (store.progress !== 0 && store.progress !== 1);
+    store.visible = entry.intersectionRatio === 1;
+    store.partiallyVisible = entry.intersectionRatio < 1 && entry.intersectionRatio > 0;
+    store.invisible = entry.intersectionRatio === 0;
+    setItemProgress(store);
   });
 };
+
+export const setItemProgress = (store: CarouselItemStore) => {
+  const ul = store.carouselItemElement?.parentElement;
+  if (ul) {
+    for (const child of ul.querySelectorAll("[data-invisible='false']")) {
+      const li = child as HTMLElement;
+      const offset = ul.offsetWidth - (li.getBoundingClientRect().left - ul.getBoundingClientRect().left);
+      const progress = (offset / ul.offsetWidth).toFixed(3);
+      li.style.setProperty('--carousel-item-progress', progress);
+    }
+  }
+}

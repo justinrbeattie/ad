@@ -276,11 +276,6 @@ export const CUSTOM_COMPONENTS: RegisteredComponent[] = [
         name: 'width',
         type: 'string',
         defaultValue: '400px'
-      },
-      {
-        name: 'height',
-        type: 'string',
-        defaultValue: '100%',
       }
     ]
   },
